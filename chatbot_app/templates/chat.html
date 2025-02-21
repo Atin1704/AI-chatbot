@@ -18,7 +18,11 @@
 <p class="p1"><span class="s1">&lt;head&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;AI Chatbot&lt;/title&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #f4f4f4;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#chatbox {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: white;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</span></p>
@@ -28,10 +32,19 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 8px;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.message { margin: 10px 0; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.user { color: #007BFF; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.bot { color: #28A745; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.timestamp { font-size: 0.75em; color: #888; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.message {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 10px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.user {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #007BFF;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.bot {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #28A745;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.timestamp {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.75em;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #888;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input[type="text"] {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 70%;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
@@ -59,24 +72,31 @@
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function sendMessage() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var input = document.getElementById("userInput");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var userText = input.value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const input = document.getElementById("userInput");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const userText = input.value.trim();</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!userText) return;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>input.value = "";</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const timestamp = new Date().toLocaleTimeString();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const chatbox = document.getElementById("chatbox");</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var chatbox = document.getElementById("chatbox");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>chatbox.innerHTML += `&lt;div class='message user'&gt;&lt;strong&gt;You:&lt;/strong&gt; ${userText} &lt;div class="timestamp"&gt;${timestamp}&lt;/div&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Display user message</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>chatbox.innerHTML += `&lt;div class='message user'&gt;&lt;strong&gt;You:&lt;/strong&gt; ${userText}&lt;div class="timestamp"&gt;${timestamp}&lt;/div&gt;&lt;/div&gt;`;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Fetch bot reply from Django backend</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>fetch(`/get-response/?msg=${encodeURIComponent(userText)}`)</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>.then(res =&gt; res.json())</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>.then(data =&gt; {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const botTimestamp = new Date().toLocaleTimeString();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chatbox.innerHTML += `&lt;div class='message bot'&gt;&lt;strong&gt;Bot:&lt;/strong&gt; ${data.reply} &lt;div class="timestamp"&gt;${botTimestamp}&lt;/div&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chatbox.innerHTML += `&lt;div class='message bot'&gt;&lt;strong&gt;Bot:&lt;/strong&gt; ${data.reply}&lt;div class="timestamp"&gt;${botTimestamp}&lt;/div&gt;&lt;/div&gt;`;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chatbox.scrollTop = chatbox.scrollHeight;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Optional: Add Enter key support</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("userInput").addEventListener("keydown", function (e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (e.key === "Enter") sendMessage();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/body&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
