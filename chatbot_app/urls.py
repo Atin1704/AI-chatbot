@@ -3,5 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.chat_view, name='chat'),
+
     path('get-response/', views.get_response, name='get_response'),
+
+    # path('api/intent/', views.get_intent),       # NLP-based intent detection
+    # path('api/history/', views.get_user_history),# Fetch user chat history
 ]
